@@ -11,8 +11,19 @@ This application realize a demonstration small CMS that handle some information 
 Make sure you have Java, PostGress and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/hellgate75/cmswebapp.git
+$ git clone https://github.com/heroku/csmwebapp.git
 $ cd cmswebapp
+```
+
+After that you need to push on your repository and connect the application on the Heroku DashBoard. Now the app is on Heroku and you can clone it.
+
+```sh
+heroku git:clone -a myapp
+```
+
+For the local start you need to prepare the envronment configuration with the PostgresSQL url and so on ..
+
+```
 $ mvn install
 $ heroku local:start
 ```
