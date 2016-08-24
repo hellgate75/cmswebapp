@@ -1,0 +1,29 @@
+<a id="logo" class="logo-box" href="/" title="Ralph Lauren">
+		<img src="http://www.ralphlauren.com//images/logo.png" alt="Ralph Lauren">
+</a>
+<nav class="navbar navbar-default navbar-static-left navbar-inverse">
+  <div class="container">
+    <ul class="nav navbar-nav">
+      <li class="<%= request.getAttribute("pageType").equals("H") ? "active" : "" %>">
+        <a href="/"><span class="glyphicon glyphicon-home"></span><fmt:message key="navbar.homeText"/></a>
+      </li>
+      <li class="<%= request.getAttribute("pageType").equals("V") ? "active" : "" %>">
+        <a href="/dataview.jsp"><span class="glyphicon glyphicon-search"></span><fmt:message key="navbar.viewText"/></a>
+      </li>
+      
+      <li class="<%= request.getAttribute("pageType").equals("I") ? "active" : "" %>">
+        <a href="/dataentry.jsp"><span class="glyphicon glyphicon-pencil"></span><fmt:message key="navbar.insertText"/></a>
+        
+      </li>
+      <li class="<%= request.getAttribute("pageType").equals("P") ? "active" : "" %>">
+        <a href="/preferences.jsp"><span class="glyphicon glyphicon-lock"></span><fmt:message key="navbar.preferencesText"/></a>
+        
+      </li>
+    </ul>
+     <ul class="nav navbar-nav navbar-right">
+      <li class="navbar-right">
+        <a href="http://www.ralphlauren.com"><span class="glyphicon glyphicon-link"></span><fmt:message key="navbar.visitText"/></a>
+      </li>
+    </ul>
+  </div>
+</nav>

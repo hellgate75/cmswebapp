@@ -1,0 +1,9 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo">
+      <img src="../lang-logo.png">
+    </a>
+    <h3><fmt:message key="welcome.heading"/></h3><br/>
+    <p><fmt:message key="welcome.message"/></p>
+  </div>
+</div>

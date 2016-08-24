@@ -1,0 +1,50 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <a href="/" class="lang-logo left">
+      <img src="../lang-logo.png">
+    </a>
+    <h3><fmt:message key="insert.heading"/></h3><br/>
+    <p>
+    	<form method="POST" id="storeForm" class="storeForm" onsubmit="return false;">
+	    	<div class="input-group input-group-lg">
+	    	
+			  <span class="input-group-addon" id="store-name-addon"><fmt:message key="insert.fields.name.title"/></span>
+			  <input name="storeName" id="storeName" maxlength="255" onfocus="Validator.clearErrors(event, 'name');" type="text" class="form-control" placeholder="<fmt:message key="insert.fields.name.placeholder"/>" aria-describedby="store-name-addon">
+			</div>
+			<div id="error-store-name" class="error-bubble hidden"><div class="error-bubble-top-arrow" onclick="$(this).parent().addClass('hidden');"></div><span onclick="$(this).parent().addClass('hidden');" class="glyphicon glyphicon-remove error-bubble-icon"></span><span class="error-bubble-message"><fmt:message key="insert.fields.name.errorMessage" /></span></div>
+	    	<div class="button-group button-group-lg typeGroupAddOn dropdown-group-fix">
+			  <button id="typeDropdownHeader" class="btn btn-default btn-lg dropdown-toggle typeAddOn" type="button" id="type-addon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    <fmt:message key="insert.fields.type.title"/>
+			    <span class="caret typeCaret"></span>
+			  </button>
+			  <ul class="dropdown-menu" id="dropdownStoreType" aria-labelledby="type-addon">
+				  <li class="dropdown-header"><fmt:message key="insert.fields.type.label"/></li>
+				  <li><a href="#" type="R" onclick="return Events.switchToRetail(event);"><fmt:message key="insert.fields.type.labelRetail"/></a></li>
+				  <li><a href="#" type="F" onclick="return Events.switchToFactory(event);"><fmt:message key="insert.fields.type.labelFactory"/></a></li>
+			  </ul>
+			  
+			  <input name="storeType" id="storeType" type="text" style="visibility: hidden" >
+			</div>
+			<div id="error-store-type" class="error-bubble dropdown-bubble-fix hidden"><div class="error-bubble-top-arrow" onclick="$(this).parent().addClass('hidden');"></div><span onclick="$(this).parent().addClass('hidden');" class="glyphicon glyphicon-remove error-bubble-icon"></span><span class="error-bubble-message"><fmt:message key="insert.fields.type.errorMessage"/></span></div>
+	    	<div class="input-group input-group-lg">
+	    	
+			  <span class="input-group-addon" id="address-addon"><fmt:message key="insert.fields.address.title"/></span>
+			  <textarea name="storeAddress" id="storeAddress" maxlength="1000" onfocus="Validator.clearErrors(event, 'address');" type="text" class="form-control" placeholder="<fmt:message key="insert.fields.address.placeholder"/>" aria-describedby="address-addon"></textarea>
+			</div>
+			<div id="error-store-address" class="error-bubble hidden"><div class="error-bubble-top-arrow" onclick="$(this).parent().addClass('hidden');"></div><span onclick="$(this).parent().addClass('hidden');" class="glyphicon glyphicon-remove error-bubble-icon"></span><span class="error-bubble-message"><fmt:message key="insert.fields.address.errorMessage"/></span></div>
+	    	<div class="input-group input-group-lg">
+			  <span class="input-group-addon" id="image-addon"><fmt:message key="insert.fields.image.title"/></span>
+			  <input name="storeImage" id="storeImage" type="file" onfocus="Validator.clearErrors(event, 'image');" class="form-control" placeholder="<fmt:message key="insert.fields.image.placeholder"/>" aria-describedby="image-addon">
+			</div>
+			<div id="error-store-image" class="error-bubble hidden"><div class="error-bubble-top-arrow" onclick="$(this).parent().addClass('hidden');"></div><span onclick="$(this).parent().addClass('hidden');" class="glyphicon glyphicon-remove error-bubble-icon"></span><span class="error-bubble-message"><fmt:message key="insert.fields.image.errorMessage"/></span></div>
+	    	<div class="input-group input-group-lg">
+			  <span class="input-group-addon" id="zip-addon"><fmt:message key="insert.fields.zipcode.title"/></span>
+			  <input name="storeZipCode" id="storeZipCode" maxlength="20" onfocus="Validator.clearErrors(event, 'zipcode');" type="text" class="form-control" placeholder="<fmt:message key="insert.fields.zipcode.placeholder"/>" aria-describedby="zip-addon">
+			</div>
+			<div id="error-store-zipcode" class="error-bubble hidden"><div class="error-bubble-top-arrow" onclick="$(this).parent().addClass('hidden');"></div><span onclick="$(this).parent().addClass('hidden');" class="glyphicon glyphicon-remove error-bubble-icon"></span><span class="error-bubble-message"><fmt:message key="insert.fields.zipcode.errorMessage"/></span></div>
+		    <button type="button" class="btn btn-lg btn-default" onclick="return Validator.clearStoreForm(event);"><fmt:message key="insert.fields.resetButton"/></button>
+		    <button type="submit" class="btn btn-lg btn-primary" onclick="return Validator.submitStoreForm(event, $('#storeForm')[0]);"><fmt:message key="insert.fields.saveButton"/></button>
+		</form>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<div class="footer-box">
+<hr width="100%" align="left" class="separator-line">
+<span class="content-light-box"><fmt:message key="msg.footerContent"/></span>
+</div>
