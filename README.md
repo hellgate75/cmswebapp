@@ -11,8 +11,8 @@ This application realize a demonstration small CMS that handle some information 
 Make sure you have Java, PostGress and Maven installed.  Also, install the [Heroku Toolbelt](https://toolbelt.heroku.com/).
 
 ```sh
-$ git clone https://github.com/heroku/crmwebapp.git
-$ cd crmwebapp
+$ git clone https://github.com/hellgate75/cmswebapp.git
+$ cd cmswebapp
 $ mvn install
 $ heroku local:start
 ```
@@ -33,7 +33,7 @@ $ mvn javadoc:jar
 
 ```sh
 $ heroku create
-$ git push heroku master
+$ git push origin master
 $ heroku open
 ```
 
