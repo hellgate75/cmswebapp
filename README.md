@@ -2,7 +2,7 @@
 
 A barebones Java app, which can easily be deployed to Heroku.
 
-This application realize a demonstration small CMS that handle some information about some entity called Store, these entity are saved in a postgres database and cached during the search phase. It is possibe to view the Welcome Home Page, insert Stores, view and filter (by Name or Type) the saved stores. It is apply to concept such as responsiveness and adaptiveness. It is powered by Jax-Rs Rest Service to the database and the UI has been written in JavaServerPage 2.1 technology using the jquery and Boostrap javascript frameworks. This is a simulation regarding the Ralph Lauren brand.
+This application realize a demonstration small CMS that handle some information about some entity called Store, these entity are saved in a postgres database and cached during the search phase. It is possibe to view the Welcome Home Page, insert Stores, view and filter (by Name or Type) the saved stores. It is compliant to the responsiveness concept and customized Store data entry page. It is powered by a JAX-Rs Rest Service to fetch data from the database and the UI has been written in JavaServerPage 2.1 technology using the jquery and Boostrap javascript frameworks. This is a simulation using the Ralph Lauren's similar brand.
 
 [![How-To Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
