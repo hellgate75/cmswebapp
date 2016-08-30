@@ -10,6 +10,7 @@
 <html>
 <head>
   <title><fmt:message key="welcome.title"/></title>
+  <META HTTP-EQUIV=”Content-language” CONTENT=”en-EN”>
   <%@include file="./jsp/header.jspf" %>
 </head>
 <body bgcolor="white">

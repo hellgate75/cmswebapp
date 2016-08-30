@@ -27,7 +27,6 @@
 			</div>
 			<div id="error-store-type" class="error-bubble dropdown-bubble-fix hidden"><div class="error-bubble-top-arrow" onclick="$(this).parent().addClass('hidden');"></div><span onclick="$(this).parent().addClass('hidden');" class="glyphicon glyphicon-remove error-bubble-icon"></span><span class="error-bubble-message"><fmt:message key="insert.fields.type.errorMessage"/></span></div>
 	    	<div class="input-group input-group-lg">
-	    	
 			  <span class="input-group-addon" id="address-addon"><fmt:message key="insert.fields.address.title"/></span>
 			  <textarea name="storeAddress" id="storeAddress" maxlength="1000" onfocus="Validator.clearErrors(event, 'address');" type="text" class="form-control" placeholder="<fmt:message key="insert.fields.address.placeholder"/>" aria-describedby="address-addon"></textarea>
 			</div>

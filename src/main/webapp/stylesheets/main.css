@@ -201,3 +201,71 @@ input:focus, .input-group-lg>.form-control:focus {
     padding: 2px;
     padding-left: 3px;
 }
+.search-panel {
+	width: 80%;
+    display: inline-flex;
+    position: inherit;
+    margin-top: 20px;
+}
+#searchByTypeGroup {
+	width: 90%;
+    margin-left: 5px;
+}
+#searchByNameGroup {
+    width: 80%;
+    margin-left: 5px;
+}
+#searchSelectorBox {
+	min-width: 175px;
+}
+#searchSelectorBox, #searchByNameGroup, 
+#searchByTypeGroup {
+	position: relative;
+	float: left;
+}
+#searchByNameGroup.hidden {
+	display: none;
+}
+#searchByTypeGroup.hidden {
+	display: none;
+}
+#startSearchBtn {
+	position: relative;
+    float: right;
+    width: 5%;
+    margin-left: 5px;
+    height: 46px;
+    height: 4.6rem;
+}
+#startSearchBtn span {
+	margin-left: -9px;
+}
+@media (max-width: 767px) {
+	.search-panel {
+		width: 100%;
+	    display: block;
+	    position: inherit;
+	    margin-top: 105px;
+	}
+	#searchSelectorBox {
+		width: 100%;
+	    margin-left: 5px;
+	}
+  	#searchByNameGroup, 
+	#searchByTypeGroup {
+		width: 100%;
+	    margin-left: 5px;
+	}
+	#startSearchBtn {
+		position: inherit;
+		width: 99%;
+	    margin-left: 0px;
+	    margin-top: 0px;
+		height: 46px;
+		height: 4.6rem;
+	}
+	#startSearchBtn span {
+		margin-left: 0px;
+	}
+	
+}

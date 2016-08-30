@@ -4,6 +4,46 @@
       <img src="../lang-logo.png">
     </a>
     <h3><fmt:message key="view.heading"/></h3><br/>
+    <div class="search-panel">
+		<div class="button-group button-group-lg typeGroupAddOn dropdown-group-fix" id="searchSelectorBox">
+		<button id="searchTypeDropdownHeader" class="btn btn-default btn-lg dropdown-toggle typeAddOn" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    <fmt:message key="view.search.typee.title"/>
+			    <span class="caret typeCaret"></span>
+		</button>
+		  <ul class="dropdown-menu dropdown-search-menu" id="dropdownStoreSearchType" aria-labelledby="searchTypeDropdownHeader">
+			  <li class="dropdown-header"><fmt:message key="view.search.type.label"/></li>
+			  <li><a href="#" type="A" onclick="return Events.switchToAllRecords(event, '<fmt:message key="view.search.type.label.all"/>');"><fmt:message key="view.search.type.label.all"/></a></li>
+			  <li><a href="#" type="N" onclick="return Events.switchToByName(event, '<fmt:message key="view.search.type.label.name"/>');"><fmt:message key="view.search.type.label.name"/></a></li>
+			  <li><a href="#" type="T" onclick="return Events.switchToByType(event, '<fmt:message key="view.search.type.label.type"/>');"><fmt:message key="view.search.type.label.type"/></a></li>
+		  </ul>
+		</div>
+			  
+		  <input name="storeSearchType" id="storeSearchType" type="text" style="visibility: hidden; display: none;" >
+			<div class="input-group input-group-lg hidden" id="searchByNameGroup">
+				<span class="input-group-addon" id="image-addon">
+				<fmt:message key="view.search.name.title" /></span> <input name="storeImage"
+					id="storeName" type="text"
+					onfocus="Events.triggerClearOn(event, this);"
+					class="form-control"
+					placeholder="<fmt:message key="view.search.name.placeholder"/>"
+					aria-describedby="image-addon">
+			</div>
+	    	<div class="button-group button-group-lg typeGroupAddOn dropdown-group-fix hidden" id="searchByTypeGroup">
+			  <button id="typeDropdownHeader" class="btn btn-default btn-lg dropdown-toggle typeAddOn" type="button" id="type-addon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    <fmt:message key="insert.fields.type.title"/>
+			    <span class="caret typeCaret"></span>
+			  </button>
+			  <ul class="dropdown-menu" id="dropdownStoreType" aria-labelledby="type-addon">
+				  <li class="dropdown-header"><fmt:message key="insert.fields.type.label"/></li>
+				  <li><a href="#" type="R" onclick="return Events.searchForRetail(event);"><fmt:message key="insert.fields.type.labelRetail"/></a></li>
+				  <li><a href="#" type="F" onclick="return Events.searchForFactory(event);"><fmt:message key="insert.fields.type.labelFactory"/></a></li>
+			  </ul>
+			  
+			  <input name="storeTypeSelector" id="storeTypeSelector" type="text" style="visibility: hidden; display: none;" >
+			</div>
+			<button id="startSearchBtn" type="button" class="btn btn-lg btn-primary hidden" onclick="return Events.startSearch(event);"><span class="glyphicon glyphicon-search"></span></button>
+
+		</div>
     <p><fmt:message key="view.message"/></p>
   </div>
 </div>

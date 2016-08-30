@@ -12,6 +12,7 @@ var defaultTypeDropdownFactoryValue = 'Factory';
 var defaultTypeDropdownRetailValue = 'Retail';
 var defaultTypeDropdownSelector = '<span class="caret typeCaret"></span>';
 var defaultTypeDropdownFilledClass = 'filled';
+var defaultHiddenClass = 'hidden';
 var Validator = (function(){
 	return {
 		clearStoreForm: clearDataEntryForm,
@@ -136,7 +137,15 @@ var Validator = (function(){
 var Events = (function(){
 	return {
 		switchToFactory: dropdownSwitchToFactory,
-		switchToRetail: dropdownSwitchToRetail
+		switchToRetail: dropdownSwitchToRetail,
+		switchToAllRecords: dropdownSwitchSearchToAllStores,
+		switchToByName : dropdownSwitchSearchToFilterByName,
+		switchToByType : dropdownSwitchSearchToFilterByType,
+		triggerClearOn : inputTextClearValue,
+		searchForFactory : searchForFactoryEventTrigger,
+		searchForRetail : searchForRetailEventTrigger,
+		startSearch: searchAndUpdateTableContent
+		
 	};
 	function dropdownSwitchToFactory(event) {
 		$('#storeType').val('F');
@@ -150,6 +159,83 @@ var Events = (function(){
 	} 
 	function dropdownSwitchToRetail(event) {
 		$('#storeType').val('R');
+		$('#searchTypeDropdownHeader').addClass(defaultTypeDropdownFilledClass);
+		$('#searchTypeDropdownHeader').html(defaultTypeDropdownRetailValue + defaultTypeDropdownSelector);
+		if (!$('#error-store-type').hasClass('hidden')) {
+			$('#error-store-type').addClass('hidden');
+		}
+		event.preventDefault();
+		return false;
+	} 
+	function dropdownSwitchSearchToAllStores(event, text) {
+		$('#storeSearchType').val('A');
+		$('#storeName').val('');
+		$('#storeTypeSelector').val('');
+		$('#typeDropdownHeader').html(defaultTypeDropdownValue + defaultTypeDropdownSelector);
+		
+		$('#searchTypeDropdownHeader').html(text + defaultTypeDropdownSelector);
+		if ($('#startSearchBtn').hasClass(defaultHiddenClass)) {
+			$('#startSearchBtn').removeClass(defaultHiddenClass);
+		}
+		if (!$('#searchByNameGroup').hasClass(defaultHiddenClass)) {
+			$('#searchByNameGroup').addClass(defaultHiddenClass);
+		}
+		if (!$('#searchByTypeGroup').hasClass(defaultHiddenClass)) {
+			$('#searchByTypeGroup').addClass(defaultHiddenClass);
+		}
+		event.preventDefault();
+		return false;
+	} 
+	function dropdownSwitchSearchToFilterByName(event, text) {
+		$('#storeSearchType').val('N');
+		$('#storeName').val('');
+		$('#storeTypeSelector').val('');
+		$('#typeDropdownHeader').html(defaultTypeDropdownValue + defaultTypeDropdownSelector);
+		
+		$('#searchTypeDropdownHeader').html(text + defaultTypeDropdownSelector);
+		if ($('#startSearchBtn').hasClass(defaultHiddenClass)) {
+			$('#startSearchBtn').removeClass(defaultHiddenClass);
+		}
+		if ($('#searchByNameGroup').hasClass(defaultHiddenClass)) {
+			$('#searchByNameGroup').removeClass(defaultHiddenClass);
+		}
+		if (!$('#searchByTypeGroup').hasClass(defaultHiddenClass)) {
+			$('#searchByTypeGroup').addClass(defaultHiddenClass);
+		}
+		event.preventDefault();
+		return false;
+	} 
+	function dropdownSwitchSearchToFilterByType(event, text) {
+		$('#storeSearchType').val('T');
+		$('#storeName').val('');
+		$('#storeTypeSelector').val('');
+		$('#typeDropdownHeader').html(defaultTypeDropdownValue + defaultTypeDropdownSelector);
+		
+		$('#searchTypeDropdownHeader').html(text + defaultTypeDropdownSelector);
+		if ($('#startSearchBtn').hasClass(defaultHiddenClass)) {
+			$('#startSearchBtn').removeClass(defaultHiddenClass);
+		}
+		if ($('#searchByTypeGroup').hasClass(defaultHiddenClass)) {
+			$('#searchByTypeGroup').removeClass(defaultHiddenClass);
+		}
+		if (!$('#searchByNameGroup').hasClass(defaultHiddenClass)) {
+			$('#searchByNameGroup').addClass(defaultHiddenClass);
+		}
+		event.preventDefault();
+		return false;
+	}
+	function searchForFactoryEventTrigger(event) {
+		$('#storeTypeSelector').val('F');
+		$('#typeDropdownHeader').addClass(defaultTypeDropdownFilledClass);
+		$('#typeDropdownHeader').html(defaultTypeDropdownFactoryValue + defaultTypeDropdownSelector);
+		if (!$('#error-store-type').hasClass('hidden')) {
+			$('#error-store-type').addClass('hidden');
+		}
+		event.preventDefault();
+		return false;
+	} 
+	function searchForRetailEventTrigger(event) {
+		$('#storeTypeSelector').val('R');
 		$('#typeDropdownHeader').addClass(defaultTypeDropdownFilledClass);
 		$('#typeDropdownHeader').html(defaultTypeDropdownRetailValue + defaultTypeDropdownSelector);
 		if (!$('#error-store-type').hasClass('hidden')) {
@@ -157,7 +243,24 @@ var Events = (function(){
 		}
 		event.preventDefault();
 		return false;
-	} 
+	}
+	function searchAndUpdateTableContent(event) {
+		var searchType = $('#storeSearchType').val();
+		var searchText = $('#storeName').val();
+		var searchTypeValue = $('#storeTypeSelector').val();
+		console.log("Search : " + searchType + " Text: '"+searchText+"' Store Type: '"+searchTypeValue+"'");
+		event.preventDefault();
+		return false;
+	}
+	function searchFor(byAll, byName, byType, value) {
+		
+	}
+	function inputTextClearValue(event, input) {
+		if (!!input) {
+			input.value = '';
+		}
+		return true;
+	}
 })();
 
 //$('.typeAddon').on('click', function(event) {
